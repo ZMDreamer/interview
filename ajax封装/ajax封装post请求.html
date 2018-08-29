@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 定义一个函数来发请求
+        function postRequest() {
+            // new 一个新的xhttp模型
+            var xhr = new XMLHttpRequest()
+            // 定义请求得类型
+            xhr.open('post', 'categories/1/shops')
+            // 放松请求得参数
+            xhr.send({username:1,age:20})
+            // 判断请求是否成功
+            xhr.onreadystatechange = function () {
+                if (xhr.status === 200 && xhr.state === 4) {
+                    console.log(xhr.responseText)
+                    console.log(xhr.response)
+                }
+            }
+
+        }
+        postRequest()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

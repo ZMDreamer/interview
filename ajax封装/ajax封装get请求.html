@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax封装get请求</title>
+</head>
+
+<body>
+    <button>get按钮</button>
+    <div></div>
+</body>
+
+</html>
+<script>
+    var btn = document.querySelector('button')
+    btn.onclick = function () {
+        getRequest()
+
+    }
+    // 封装ajax请求
+    function getRequest() {
+        // 通过创建XMLHttpRequest来发送请求
+        var xhr = new XMLHttpRequest()
+       
+        // 设置请求方法和请求地址
+        xhr.open('get', 'https://locally.uieee.com/categories')
+        // 发送 请求参数
+        xhr.send(null)
+        // 判断请求是否成功
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                console.log(JSON.parse(xhr.responseText))
+                document.querySelector('div').innerHTML= xhr.responseText
+            }
+        }
+    }
+</script>
